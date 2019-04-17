@@ -1,0 +1,93 @@
+
+
+<HTML>
+<HEAD>
+
+<script type="text/javascript">
+  function checkForm(forms)
+  {
+re = /[0-9]/;
+      if(!re.test(forms.CARD_NUMBER.value)) {
+        alert("Error: password must contain numbers (0-9)!");
+        form.CARD_NUMBER.focus();
+        return false;
+}
+ if(forms.CARD_NUMBER.value.length < 16) {
+        alert("Error: Password must contain at least sixteen characters!");
+        forms.CARD_NUMBER.focus();
+        return false;
+      }
+else{
+    alert("You have entered an invalid card number!")
+}
+    return true;
+}
+</script>
+</HEAD>
+<body>
+  
+      <form method="post" action='buy1.php' name='forms' >
+	BOOKNAME:<input style="font-size:25px;" type ="text" name="bookname"/><br>
+  
+<br>
+<br>
+	
+	
+
+
+  CONDITION:<br>
+    <input type="radio" 
+     name="CONDITION" value="new">
+     <label >NEW</label><br>
+
+    <input type="radio" 
+     name="CONDITION" value="good">
+     <label >GOOD</label><br>
+
+    <input type="radio" 
+     name="CONDITION" value="average">
+ <label >AVERAGE</label><br>
+    <input type="radio" 
+     name="CONDITION" value="poor">
+ <label>POOR</label><br><br>
+    
+
+Pay Mode:<br>
+<input type="radio"
+name="PayMode" value="COD">
+<label>COD</label><br>
+<input type="radio" name="PayMode" value="CARD">
+<label>CARD</label><br>
+<input type="text" name="CARD_NUMBER" placeholder="card no"><br><br><br>
+
+
+
+
+
+ <input style="font-size:25px;" type="submit" name="Buy" value="BUY"><br><br><br>
+
+<input style="font-size:25px;" type="submit" name="addtocart" value="ADD TO CART"><br> <br><br>
+  
+  <input style="font-size:25px;" type="submit" name="showcart" value="SHOW CART"><br><br><br>
+  
+	
+</form>
+
+<form method='post' action='sell1.php'>
+  
+
+  <input style="font-size:25px;" type="submit" name="Sell" value="SELL"><br><br>
+  
+  
+</form>
+
+      
+ <form method="post" action="filter.html">
+
+<input style="font-size:25px;" type="submit" name="filter1" value="FILTERS">
+  
+ </form>
+ 
+ 
+</body>
+</html>

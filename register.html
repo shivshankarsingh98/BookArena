@@ -1,0 +1,103 @@
+<html>
+<head>
+<script type="text/javascript">
+
+  function checkForm(form)
+  {
+    if(form.username.value == "") {
+      alert("Error: Username cannot be blank!");
+      form.username.focus();
+      return false;
+    }
+    re = /^\w+$/;
+    if(!re.test(form.username.value)) {
+      alert("Error: Username must contain only letters, numbers and underscores!");
+      form.username.focus();
+      return false;
+    }
+if(form.phno.value.length < 10||form.phno.value.length > 10) {
+        alert("Error: Phone Number is invalid");
+        form.pwd1.focus();
+        return false;
+      }
+
+ re = /[a-z]/;
+      if(re.test(form.phno.value)) {
+        alert("Error: Phone number cannot contain lowercase letter (a-z)!");
+        form.pwd1.focus();
+        return false;
+      }
+      re = /[A-Z]/;
+      if(re.test(form.phno.value)) {
+        alert("Error: Phone number cannot contain uppercase letter (A-Z)!");
+        form.pwd1.focus();
+        return false;
+      }
+
+
+    if(form.pwd1.value != "" && form.pwd1.value == form.pwd2.value) {
+      if(form.pwd1.value.length < 6) {
+        alert("Error: Password must contain at least six characters!");
+        form.pwd1.focus();
+        return false;
+      }
+      if(form.pwd1.value == form.username.value) {
+        alert("Error: Password must be different from Username!");
+        form.pwd1.focus();
+        return false;
+      }
+      re = /[0-9]/;
+      if(!re.test(form.pwd1.value)) {
+        alert("Error: password must contain at least one number (0-9)!");
+        form.pwd1.focus();
+        return false;
+      }
+      re = /[a-z]/;
+      if(!re.test(form.pwd1.value)) {
+        alert("Error: password must contain at least one lowercase letter (a-z)!");
+        form.pwd1.focus();
+        return false;
+      }
+      re = /[A-Z]/;
+      if(!re.test(form.pwd1.value)) {
+        alert("Error: password must contain at least one uppercase letter (A-Z)!");
+        form.pwd1.focus();
+        return false;
+      }
+    } else {
+      alert("Error: Please check that you've entered and confirmed your password!");
+      form.pwd1.focus();
+      return false;
+    }
+if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(form.email.value))
+  {
+    return (true)
+  }else{
+    alert("You have entered an invalid email address!")
+}
+    return true;
+  }
+
+
+
+
+
+
+</script>
+</head>
+<body>
+<form  onsubmit="return checkForm(this);" method="POST" action="reg.php">
+<table>
+
+<tr><td>UserName:</td><td><input type="text" size="15" name="username" align="center"></td></tr>
+<tr><td>Email: </td><td>  <input type="text" size="15" name="email" align="right"></td></tr>
+<tr><td>PhoneNumber:</td><td><input type="text" size="15" name="phno" align="right"></td></tr>
+<tr><td>Address: </td><td><input type="text" size="15" name="addr" align="center"></td></tr>
+<tr><td>Password:</td><td><input type="password" size="15" name="pwd1"></td></tr>
+<tr><td>ConfirmPassword:</td><td><input type="password" size="15" name="pwd2"></td></tr></table>
+<a><button type="submit" name="submit-register">Register</button></a>
+<a><button type="button">Cancel</button></a>
+</table>
+</form>
+</body>
+</html>
